@@ -34,7 +34,7 @@ class Comment extends \yii\db\ActiveRecord
             [['user_id', 'article_id', 'parent_id', 'status'], 'integer'],
             [['date'], 'required'],
             [['date'], 'safe'],
-            [['text'], 'string', 'max' => 256],
+            [['text'], 'string', 'max' => 8192],
         ];
     }
 
