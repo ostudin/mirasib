@@ -1,0 +1,52 @@
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\DetailView;
+
+/* @var $this yii\web\View */
+/* @var $model app\models\Article */
+
+$this->title = $model->title;
+$this->params['breadcrumbs'][] = ['label' => 'Статьи', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+\yii\web\YiiAsset::register($this);
+?>
+<div class="article-view">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <p>
+        <?= Html::a('Изменить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('Установить изображение', ['set-image', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('Установить категорию', ['set-category', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('Добавить аудио', ['set-audio', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('Добавить изображения', ['add-images', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Удалить', ['delete', 'id' => $model->id], [
+            'class' => 'btn btn-danger',
+            'data' => [
+                'confirm' => 'Вы действительно хотите удалить эту статью?',
+                'method' => 'post',
+            ],
+        ]) ?>
+    </p>
+
+    <?= DetailView::widget([
+        'model' => $model,
+        'attributes' => [
+            'id',
+            'title',
+            'description:ntext',
+            'content:ntext',
+            'date',
+            'image',
+            'imageFolder',
+            'category_id',
+			'audio',
+            'html_page',
+            'viewed',
+            'user_id',
+            'status',
+        ],
+    ]) ?>
+
+</div>
