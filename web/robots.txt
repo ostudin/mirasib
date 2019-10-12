@@ -1,2 +1,3 @@
+# Default exclusions
 User-agent: *
-Disallow:
+

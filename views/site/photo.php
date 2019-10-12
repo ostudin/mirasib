@@ -1,5 +1,6 @@
 <?php	
 	use yii\helpers\Html;
+	use app\models\Page;
 	
 	$this->title = $article->title;
 	$header = '<header class="entry-header text-center text-uppercase">			
@@ -9,6 +10,13 @@
 	$thumbnails    = $article->thumbnails;	
 	$htmlContent   = $article->htmlContent;
 	$imageFolder   = '/' . Yii::getAlias('@web') . 'images-folders/' . $article->imageFolder . '/';
+	
+	Page::setMetaTags([
+			'title'       => $article->title,
+			'description' => $article->description,
+			'section'     => 'Фотоальбом',
+			'image'       => $thumbnails['file'],
+		]);
 ?>
               
 <article class="post">

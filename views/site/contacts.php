@@ -1,7 +1,15 @@
 <?php
 	use yii\helpers\Html;
-
+	use app\models\Page;
+			
 	$this->title = $title;
+	
+	Page::setMetaTags([
+			'title'       => $title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			//'section'     => 'Контакты',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);
 ?>
 
 <article class="post">                    

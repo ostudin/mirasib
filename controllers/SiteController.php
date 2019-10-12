@@ -57,11 +57,21 @@ class SiteController extends Controller
     {		
 		$query = Article::find()->orderBy(['date' => SORT_DESC]);
 		
-		$articles  = $query->limit(6)->all();
+		
+		$articles = $query->where('news IS NOT NULL')->limit(6)->all();
+		$articles = Article::articleInit($articles);		
+		
 		$interview = $query->where(['category_id' => 2])->all();
-		$services  = $query->where(['category_id' => 3])->all();
-		$poems     = $query->where(['category_id' => 5])->all();
+		$interview = Article::articleInit($interview);
+		
+		$services = $query->where(['category_id' => 3])->all();
+		$services = Article::articleInit($services);
+		
+		$poems = $query->where(['category_id' => 5])->all();
+		$poems = Article::articleInit($poems);
+		
 		//$videos    = $query->where(['category_id' => 6])->all();
+		//$videos = Article::articleInit($videos);
 		
 		$slides = Slider::getImages();
 		
@@ -70,10 +80,13 @@ class SiteController extends Controller
 	
 	public function actionNews()
     {
-		$query = Article::find()->orderBy(['date' => SORT_DESC]);
+		$query = Article::find()->orderBy(['date' => SORT_DESC])->where('news IS NOT NULL');
 		$count = $query->count();
 		$pagination = new Pagination(['totalCount' => $count, 'pageSize' => 30]);
+		
 		$articles = $query->offset($pagination->offset)->limit($pagination->limit)->all();
+		$articles = Article::articleInit($articles);
+		
 		$title = 'Новости';
 				
         return $this->render('news', compact('articles', 'pagination', 'title'));
@@ -81,7 +94,8 @@ class SiteController extends Controller
         
     public function actionAbout()
     {       
-		$article  = Article::findOne(['html_page' => 'about']);
+		$article = Article::findOne(['html_page' => 'about']);
+				
 		$comments = CommentForm::getComments($article->id);
 		$commentForm = new CommentForm;
 		
@@ -93,9 +107,24 @@ class SiteController extends Controller
 		return $this->render('about', compact('article', 'comments', 'commentForm'));
     }
 	
-	public function actionView($id)
+	public function actionView($id = false, $alias = false)
 	{
-		$article  = Article::findOne($id);
+		if($id)
+		{
+			$article = Article::findOne($id);
+			$article = Article::articleInit($article);
+		}
+		
+		else if($alias) 
+		{
+			$article = Article::findOne(['alias' => $alias]);	
+			if(!$article) $article = Article::findOne(['imageFolder' => $alias]);	
+			if(!$article) $article = Article::findOne(['html_content' => $alias]);	
+			
+			$article = Article::articleInit($article);			
+			$id = $article->id;
+		}
+		
 		$article->view();
 		$comments = CommentForm::getComments($id);
 		$commentForm = new CommentForm;
@@ -108,7 +137,7 @@ class SiteController extends Controller
 		return $this->render('single', compact('article', 'comments', 'commentForm'));
 	}
 	
-	public function actionComment($id)
+	public function actionComment($id = false)
 	{
 		$model = new CommentForm;
 		
@@ -170,9 +199,9 @@ class SiteController extends Controller
 		return $this->render('contacts', ['title' => 'Контакты']);
 	}
 	
-	public function actionPhoto($id = false)
+	public function actionPhoto($alias = false)
     {
-		if(!$id)
+		if(!$alias)
 		{
 			$query = Article::getPhotoalbum();
 			$count = $query->count();
@@ -183,9 +212,9 @@ class SiteController extends Controller
 			return $this->render('news', compact('articles', 'pagination', 'title'));
 		}
 		
-		if($id)
+		if($alias)
 		{
-			$article  = Article::findOne($id);
+			$article  = Article::findOne(['alias' => $alias]);
 			$article->view();			
 			
 			return $this->render('photo', compact('article'));

@@ -33,7 +33,8 @@ PublicAsset::register($this);
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов">	
 	<meta name="keywords" content="Мира, МиРа, НРОО, Кулекин, Кулекин Владимир Львович, организация инвалидов, защита инвалидов, социальные услуги, социальная доставка, доставка товаров, доставка продуктов, доставка лекарств, массаж, клининговые услуги, клининг, уборка, чистка, Новосибирск, мелкий ремонт, социальное такси, доброе">
-	<link rel="shortcut icon" href="<?= Yii::getAlias('@web') . 'images/logo-icon.png' ?>">
+		
+	<link rel="shortcut icon" href="/images/logo-icon.png">
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -42,12 +43,12 @@ PublicAsset::register($this);
 <?php $this->beginBody() ?>
 <div id='main'>
 	<?php if(Yii::$app->controller->module->id == 'basic'): ?>
-		<?= $this->render('/partials/visually'); ?>
+		<?= $this->render('/partials/visually'); ?>		
 	<?php endif; ?>
 
 	<div id="site" <?= $visually ? "class='$visually $fontsize $scheme $images'" : false ?>>
 		<nav id="contacts" class="row-flex space-evenly flex-nowrap">
-			<div class="div-contacts" id="contacts-address"><i class="fa fa-map-marker icon" aria-hidden="true"></i>Новосибирск, ул. Римского-Корсакова 10</div>
+			<div class="div-contacts" id="contacts-address"><i class="fa fa-map-marker icon" aria-hidden="true"></i>Новосибирск, ул. Римского-Корсакова, 10</div>
 			<div class="div-contacts" id="contacts-mail">
 				<a href="mailto:nroo-mira@yandex.ru"><i class="fa fa-envelope icon" aria-hidden="true"></i>nroo-mira@yandex.ru</a>
 			</div>
@@ -62,54 +63,55 @@ PublicAsset::register($this);
 					<a href="https://www.instagram.com/_mirasib/" target="_blank" title="Мы в Instgram"><i class="fa fa-instagram icon" aria-hidden="true"></i></a>
 			</div>
 		</nav>
-		<nav class="navbar main-menu navbar-default">
-			<div class="container-fluid">
-				<div class="menu-content">					
-					<div class="navbar-header">						
-						<button type="button" class="navbar-toggle collapsed toggle-button" data-toggle="collapse"
-								data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<div class="navbar-toggle collapsed visually-collapsed toggle-button visually-impaired"><i class="fa fa-eye" aria-hidden="true"></i></div>
-						<a class="navbar-brand" href="/"><img src="/assets/site/public/images/logo.jpg" alt=""></a>
-					</div>
 
-
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-
-						<ul class="nav navbar-nav text-uppercase">                    
-							<li><a href="/">Главная</a></li>
-							<li><a href="/about">Об огранизации</a></li>
-							<li><a href="/projects">Проекты</a></li>
-							<li><a href="/feedback">Написать нам</a></li>
-							<li><a href="/contacts">Контакты</a></li>
-							<?php if(User::isAdmin()): ?>
-								<li><a href="/admin/article">Администрирование</a></li>
-							<?php endif; ?>
-						</ul>
-						<div class="i_con">
-							<ul class="nav navbar-nav text-uppercase">
+		<div class="header header-intro header-new">
+			<nav class="navbar navbar-inverse navbar-static-top">
+				<div class="container-fluid">
+					<div class="menu-content">	
+						<div class="navbar-header">						
+							<button type="button" class="navbar-toggle collapsed toggle-button button-collapse" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+							<div class="navbar-toggle collapsed visually-collapsed toggle-button visually-impaired"><i class="fa fa-eye" aria-hidden="true"></i></div>
+							<!--a class="navbar-brand" href="/"><img src="/assets/site/public/images/logo.jpg" alt=""></a-->
+						</div>				
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav text-uppercase menu-on-img col-md-12">                    
+								<li><a href="/">Главная</a></li>
+								<li><a href="/about">Об огранизации</a></li>
+								<li><a href="/projects">Проекты</a></li>
+								<li><a href="/feedback">Написать нам</a></li>
+								<li><a href="/contacts">Контакты</a></li>
+															
 								<?php if(Yii::$app->user->isGuest): ?>
-									<li><a href="/entry">Войти</a></li>
+									<li class="float-right"><a href="/entry">Войти</a></li>
 								<?php endif; if(!Yii::$app->user->isGuest):?>
-									<li><?=Html::a("<i class='fa fa-sign-out'></i> Выйти", ['/auth/logout'], [
+									<li class="float-right"><?=Html::a("<i class='fa fa-sign-out'></i> Выйти", ['/auth/logout'], [
 															'data' => ['method' => 'post'],
 															'class' => 'white text-center',
 														]) ?></li>
-								<?php endif; ?>								
-							</ul>
-						</div>
-
+								<?php endif; ?>			
+								
+								<?php if(User::isAdmin()): ?>
+									<li class="float-right"><a href="/admin/article">Администрирование</a></li>
+								<?php endif; ?>
+							</ul>						
+						</div>				
 					</div>
-					<!-- /.navbar-collapse -->
 				</div>
-			</div>
-			<!-- /.container-fluid -->
-		</nav>
-
+			</nav>		
+			<a href="/">
+				<div id="organization-name">
+					<div class="organization-logo"><img src="/web/images/logo-hand.png" class="logo"></div>
+					<div class="organization-text"><p>Новосибирская региональная общественная организация <span class="nowrap">по защите</span> прав и законных интересов инвалидов "МиРа"</p></div>
+				</div>
+				<div id="header-bottom-bar"></div>
+			</a>
+		</div>
+				
 		<!--main content start-->
 		<div class="main-content">
 			<div class="container-fluid">

@@ -1,5 +1,14 @@
 <?php
+	use app\models\Page;
+
 	$this->title = 'Полезные ссылки';
+
+	Page::setMetaTags([
+			'title'       => $this->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			'section'     => 'Первая помощь',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);	
 ?>
 
 <article class="post">                    

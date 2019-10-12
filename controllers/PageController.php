@@ -23,14 +23,15 @@ class PageController extends Controller {
 	}
 	
 	public function actionFaq()
-    {		
+    {
+		
 		$faq = Page::getMiraFaq();
 		
 		return $this->render('faq', compact('faq'));
 	}
 	
 	public function actionProjects()
-	{
+	{		
 		return $this->render('projects');
 	}
 }

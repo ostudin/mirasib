@@ -64,10 +64,10 @@
 			<?php foreach($popular as $article): ?>
 				<div class="popular-post">
 					<div class="article-img popular-img">
-					<?= Html::a(Html::img($article->thumbnails['file'], ['alt' => $article->title, 'class' => 'popular-img ' . $article->thumbnails['topPosition'], ]), [$article->pageURL, 'id' => $article->id]); ?>
+					<?= Html::a(Html::img($article->thumbnails['file'], ['alt' => $article->title, 'class' => 'popular-img ' . $article->thumbnails['topPosition'], ]), [$article->pageURL, 'alias' => $article->alias]); ?>
 					</div>
 					<div class="p-content">					
-						<?= Html::a($article->title, [$article->pageURL, 'id' => $article->id, 'class' => 'text-uppercase']); ?>
+						<?= Html::a($article->title, [$article->pageURL, 'alias' => $article->alias]); ?>
 						<span class="p-date"><?= $article->getPostDate(); ?></span>
 					</div>
 				</div>				

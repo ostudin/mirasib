@@ -4,7 +4,7 @@ namespace app\assets;
 use yii\web\AssetBundle;
 
 class PublicAsset extends AssetBundle
-{
+{	
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [       		
@@ -23,12 +23,12 @@ class PublicAsset extends AssetBundle
 		
 		"assets/site/plugins/nivo-slider/default.css",
 		"assets/site/plugins/nivo-slider/nivo-slider.css",
-		
+				
 		"assets/site/css/default.css",
 		"assets/site/css/admin.css",
-		"assets/site/css/site.css",
-		"assets/site/css/htmlpages.css",
-		"assets/site/css/linkspage.css",		
+		"assets/site/css/site.css?v=1012",
+		"assets/site/css/htmlpages.css?v=1011",
+		"assets/site/css/linkspage.css?v=1012",		
     ];
 	
     public $js = [
@@ -37,9 +37,7 @@ class PublicAsset extends AssetBundle
 		"assets/site/public/js/jquery.stickit.min.js",
 		"assets/site/public/js/menu.js",
 		"assets/site/public/js/scripts.js",
-		
-		"assets/site/module/visually-impaired/script.js",
-		
+				
 		"assets/site/plugins/magnific/jquery.magnific-popup.min.js",
 		"assets/site/plugins/magnific/script.js",
 		

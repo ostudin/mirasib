@@ -1,8 +1,15 @@
 <?php
 	use yii\bootstrap\ActiveForm;
 	use yii\helpers\Html;
+	use app\models\Page;
 	
 	$this->title = 'Изменение пароля';
+
+	Page::setMetaTags([
+			'title'       => $this->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);		
 ?>
 
 <div class="col-md-8 col-md-offset-2 module">

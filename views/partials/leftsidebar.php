@@ -1,5 +1,6 @@
 <?php
 	use yii\helpers\Html;
+	use app\models\Article;
 ?>
 
 <div class="primary-sidebar">
@@ -12,6 +13,20 @@
 			<div class="p-content text-center col-md-12">Кулекин Владимир Львович</div>
 		</div>		
 	</aside>
+	
+	<?php $articles = Article::find()->where(['category_id' => 3])->orderBy(['date' => SORT_DESC])->all();	?>
+	<?php if(count($articles)): ?>	
+		<aside class="widget border pos-padding">
+			<h3 class="widget-title text-uppercase text-center">Услуги</h3>
+			<ul>
+				<?php foreach($articles as $article): ?>
+					<li>
+						<?= Html::a($article['title'], [$article->pageURL, 'alias' => $article->alias]); ?>							
+					</li>						
+				<?php endforeach; ?>
+			</ul>
+		</aside>
+	<?php endif;?>
 		
 	<aside class="widget border pos-padding">
 		<h3 class="widget-title text-uppercase text-center">Центр помощи</h3>

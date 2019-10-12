@@ -7,7 +7,7 @@
 	<div class="bottom-comment"><!--bottom comment-->
 		<h4>Комментарии</h4>
 		<?php foreach($comments as $item): ?>
-			<div class="col-md-12">
+			<div class="col-md-12 comment">
 				<div class="comment-img">
 					<img class="img-circle" src="<?= $item['photo'] ?>" alt="">
 				</div>
@@ -24,10 +24,10 @@
 					<p class="comment-date">
 						<?= $article->getPostDate($item['date']); ?>
 					</p>
-
-					<p class="para"><?= $item['text']; ?></p>
 				</div>
+				<p class="para"><?= $item['text']; ?></p>
 			</div>
+			
 		<?php endforeach; ?>
 	</div>
 <?php endif; ?>
@@ -61,6 +61,6 @@
 
 <?php if(Yii::$app->user->isGuest): ?>
 	<div class="alert alert-warning" role="alert">
-		Для отправки комментария необхожимо <?= Html::a('пройти авторизацию', ['/entry']);?> на сайте
+		Для отправки комментария необходимо <?= Html::a('пройти авторизацию', ['/entry']);?> на сайте
 	</div>
 <?php endif; ?>

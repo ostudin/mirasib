@@ -2,8 +2,16 @@
 	use yii\helpers\Html;
 	use yii\widgets\ActiveForm;
 	use yii\captcha\Captcha;
+	use app\models\Page;
 	
 	$this->title = "Написать нам";
+	
+	Page::setMetaTags([
+			'title'       => $this->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			//'section'     => 'Контакты',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);
 ?>
 
 <div class="col-md-12 module">

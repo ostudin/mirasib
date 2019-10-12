@@ -54,16 +54,17 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-				'about/' => 'site/about',
-				'view/'  => 'site/view',
+				'about/' => 'site/about',				
+				'view/<alias>' => 'site/view',	
 				'news/'  => 'site/news',
 				'feedback/' => 'site/feedback',
-				'search'    => 'site/search',
-				'privacy'   => 'site/privacy',
-				'cookies'   => 'site/cookies',
-				'contacts'  => 'site/contacts',
-				'photo'     => 'site/photo',
-				
+				'search/'    => 'site/search',
+				'privacy/'   => 'site/privacy',
+				'cookies/'   => 'site/cookies',
+				'contacts/'  => 'site/contacts',
+				'photo/<alias>'     => 'site/photo',
+				'photo/'     => 'site/photo',
+								
 				'entry/'       => 'auth/entry',
 				'signup/'      => 'auth/signup',
 				'profile/'     => 'auth/profile',
@@ -72,9 +73,7 @@ $config = [
 				'links/'     => 'page/links',
 				'documents/' => 'page/documents',
 				'faq/'       => 'page/faq',
-				'projects/'  => 'page/projects',
-				
-				//'2019/09/19/104-stranicy-pro-ljubov-mirovcy-otkryvajut-novyj-teatralnyj-sezon/' => 'page/projects',
+				'projects/'  => 'page/projects',								
             ],
         ],
     

@@ -1,5 +1,14 @@
 <?php
+	use app\models\Page;
+			
 	$this->title = $article->title;
+	
+	Page::setMetaTags([
+			'title'       => $article->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			//'section'     => 'Главная',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);
 ?>
 
 <article class="post">                    

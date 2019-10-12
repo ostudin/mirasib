@@ -2,8 +2,17 @@
 	use yii\bootstrap\ActiveForm;
 	//use yii\captcha\Captcha;	
 	use yii\helpers\Html;
-	
+	use app\models\Page;
+
 	$this->title = 'Авторизация';
+
+	Page::setMetaTags([
+			'title'       => $this->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);	
+	
+	
 ?>
 
 <div class="col-md-8 module">

@@ -148,4 +148,63 @@ class Page extends Model
 			
 		return $array;
 	}
+	
+	public function setMetaTags($array)
+	{
+		Yii::$app->view->registerMetaTag([
+			'name' => 'description',
+			'content' => isset($array['description']) ? $array['description'] : (isset($array['title']) ? $array['title'] : 'НРОО "МиРа"'),
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:locale',
+			'content' => 'ru_RU',
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:type',
+			'content' => 'article',
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:title',
+			'content' => isset($array['title']) ? $array['title'] : 'НРОО "МиРа"',
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:description',
+			'content' => isset($array['description']) ? $array['description'] : (isset($array['title']) ? $array['title'] : 'НРОО "МиРа"'),
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:url',
+			'content' => Yii::$app->request->hostInfo . Yii::$app->request->url,
+		]);
+		
+		Yii::$app->view->registerMetaTag([
+			'property' => 'og:site_name',
+			'content' => 'НРОО "МиРа"',
+		]);
+		
+		if(isset($array['section']))
+		{
+			Yii::$app->view->registerMetaTag([
+				'property' => 'article:section',
+				'content' => $array['section'],
+			]);
+		}
+		
+		if(isset($array['image']))
+		{
+			Yii::$app->view->registerMetaTag([
+				'property' => 'og:image',
+				'content' => Yii::$app->request->hostInfo . $array['image'],
+			]);
+			
+			Yii::$app->view->registerMetaTag([
+				'property' => 'og:image:secure_url',
+				'content' => Yii::$app->request->hostInfo . $array['image'],
+			]);
+		}		
+	}
 }

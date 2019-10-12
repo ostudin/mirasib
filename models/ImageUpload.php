@@ -12,7 +12,9 @@ class ImageUpload extends Model {
 	{
 		return [
 			[['image'], 'required'],
-			[['image'], 'file', 'extensions' => 'jpg,jpeg,png'],
+			//[['image'], 'file', 'extensions' => 'jpg,jpeg,png'],
+			//[['image'], 'file', 'extensions' => ['jpg', 'jpeg', 'png'], 'checkExtensionByMimeType' => false]],
+			[['image'], 'file', 'extensions' => ['jpg', 'png'], 'checkExtensionByMimeType' => false] 
 		];
 	}
 	

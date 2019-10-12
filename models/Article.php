@@ -1,9 +1,9 @@
 <?php
-
 namespace app\models;
 
 use Yii;
 use app\models\FileUpload;
+use yii\helpers\Html;
 
 /**
  * This is the model class for table "article".
@@ -287,6 +287,7 @@ class Article extends \yii\db\ActiveRecord
 	public function saveArticle()
 	{
 		$this->user_id = Yii::$app->user->id;
+		$this->alias = time();
 		return $this->save();
 	}
 	
@@ -355,8 +356,8 @@ class Article extends \yii\db\ActiveRecord
 		
 		if((strpos($path, '2018/') !== null) or (strpos($path, '2019/') !== null) or (strpos($path, '2020/') !== null))
 		{
-			$query = Yii::$app->db->createCommand('SELECT id FROM article WHERE wp_url=:path', ['path' => $path])->queryOne();		
-			if($query) return Yii::$app->getResponse()->redirect(['site/view', 'id' => $query['id']])->send();
+			$query = Yii::$app->db->createCommand('SELECT alias FROM article WHERE wp_url=:path', ['path' => $path])->queryOne();		
+			if($query) return Yii::$app->getResponse()->redirect(['site/view', 'alias' => $query['alias']])->send();
 		}
 	}
 	
@@ -370,5 +371,36 @@ class Article extends \yii\db\ActiveRecord
 		}
 		
 		return $query;
+	}
+	
+	public function articleInit($query)
+	{
+		if(is_array($query) && count($query))
+		{
+			foreach($query as &$item)
+			{
+				$item = self::setField($item);
+			}
+		}
+		
+		else 
+		{
+			$query = self::setField($query);
+		}
+		
+		return $query;
+	}
+	
+	private function setField($item)
+	{
+		$t = $item['alias'] ? $item['alias'] : false;				
+		if(!$t && $item['imageFolder']) $t = $item['imageFolder'];
+		if(!$t && $item['html_content']) $t = $item['html_content'];
+		
+		if($t && !$item['alias']) $item['alias'] = $t;
+		if($t && !$item['imageFolder']) $item['imageFolder'] = $t;
+		if($t && !$item['html_content']) $item['html_content'] = $t;
+		
+		return $item;
 	}
 }

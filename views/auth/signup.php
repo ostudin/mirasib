@@ -2,8 +2,15 @@
 	use yii\helpers\Html;
 	use yii\bootstrap\ActiveForm;	
 	//use yii\widgets\MaskedInput;	
-	
+	use app\models\Page;
+
 	$this->title = "Регистрация";
+	
+	Page::setMetaTags([
+			'title'       => $this->title,
+			'description' => 'Новосибирская региональная общественная организация по защите прав и законных интересов инвалидов "МиРа"',
+			'image'       => '/web/images/nroo-mira.jpg',
+		]);		
 ?>
 
 <div class="col-md-12 module">
