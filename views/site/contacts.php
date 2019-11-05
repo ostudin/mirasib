@@ -56,7 +56,7 @@
 						<div class="col-md-12 contacts-list-title">Электронный адрес</div>
 						<div class="contacts-items col-md-12 row-flex align-items-center nowrap">
 							<div class="contacts-items-img"><?= Html::img('@web/images/email.png') ?></div>
-							<div class="contacts-items-content wrap"><a href="mailto:nroo-mira@yandex.ru">nroo-mira@yandex</a></div>
+							<div class="contacts-items-content wrap"><a href="mailto:nroo-mira@yandex.ru">nroo-mira@yandex.ru</a></div>
 						</div>
 					</div>
 				</div>

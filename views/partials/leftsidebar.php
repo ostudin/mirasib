@@ -6,11 +6,9 @@
 <div class="primary-sidebar">
 	<aside class="widget pos-padding">
 		<h3 class="widget-title text-uppercase text-center">Президент организации</h3>
-		<div class="popular-post gallery">
-			<a href="/images/kulekin.jpg" title='Президент НРОО "МиРа" Кулекин Владимир Льович' class="col-md-12 text-center">
-				<img src="/images/kulekin.jpg" alt="Кулекин Владимир Льович" title="Кулекин Владимир Льович" />
-			</a>
-			<div class="p-content text-center col-md-12">Кулекин Владимир Львович</div>
+		<div class="popular-post text-center">
+			<?= Html::a('<img src="/images/kulekin.jpg" alt="Кулекин Владимир Льович" title="Кулекин Владимир Льович" />', ['site/view', 'alias' => '2019-08-12-intrview-kulekin']); ?>
+			<?= Html::a('<div class="p-content text-center col-md-12">Кулекин Владимир Львович</div>', ['site/view', 'alias' => '2019-08-12-intrview-kulekin']); ?>	
 		</div>		
 	</aside>
 	
@@ -42,4 +40,15 @@
 			</li>			
 		</ul>
 	</aside>
+	
+	<aside class="widget pos-padding">
+		<h3 class="widget-title text-uppercase text-center">Наши достижения</h3>		
+		<div class="popular-post">
+			<div class="article-img popular-img diplomas-img">				
+				<?php $image = Article::getDiplomasImg(); ?>
+				<?= Html::a(Html::img($image['file'], ['alt' => 'Наши достижения', 'class' => $image['topPosition']]), ['/diplomas']); ?>
+			</div>				
+		</div>						
+	</aside>
+	
 </div>

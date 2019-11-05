@@ -1,0 +1,134 @@
+/* Уровень: федеральный, региональный */
+.links-level {
+	width: 100%;
+	margin: 20px 0;
+	padding-bottom: 10px;
+	margin-bottom: 40px;
+}
+
+.links-level-title {
+	width: 100%;
+	margin-bottom: 0;
+	padding: 10px;
+	color: #fff;
+	background-color: #289A89;
+	font-size: 20px;
+	font-weight: 500;
+	text-align: center;
+}
+
+/* Организация */
+.links-organization {
+	padding-bottom: 20px;
+	border-top: 0px;
+}
+
+/* Заголовок ресурса */
+.links-title {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	
+	width: 100%;
+	height: 50px;
+	margin: 20px 10px 10px 10px;
+}
+
+.links-title-img {
+	width: 50px;
+	height: 50px;
+	margin: 0 15px 0 20px
+}
+
+.links-title-img img {
+	height: 100%;	
+}
+
+.links-title-text {
+	width: calc(100% - 100px);
+	line-height: 1.2!important;
+}
+
+.links-title-text div {
+	width: 100%;
+	height: 100%;
+	
+	font-size: 18px;
+	font-weight: 600;
+}
+
+/* Контакты */
+.links-contacts {
+	margin-bottom: 40px;
+}
+
+.links-contacts-item {
+	margin: 10px;
+	padding: 10px;
+	/* width: calc(50% - 20px); */
+	color: #fff;
+	box-shadow: 0 0 5px #000;	
+	text-align: center;
+}
+
+.links-contacts a {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+.links-contacts-item-table {
+	height: 100%;
+	width: 100%;
+	display: table;
+}
+
+.links-contacts-item-table div {
+	display: table-cell;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.links-contacts-item:hover {
+	color: #fff;
+}
+
+.links-tel {background-color: #ab46df;}
+.links-tel:hover {background-color: #9b26bf;}
+.links-link {background-color: #61ce70;}
+.links-link:hover {background-color: #41ae50;}
+.links-vk {background-color: #4872a3;}
+.links-vk:hover {background-color: #285283;}
+.links-ok {background-color: #ee8208;}
+.links-ok:hover {background-color: #de7200;}
+.links-mail {background-color: #06f;}
+.links-mail:hover {background-color: #04d;}
+
+table.doc {margin-bottom: 0!important;}
+table.doc td {padding: 10px!important;}
+table.doc img, table.doc span {float: left;}
+
+.doc-title {
+	font-weight: 600;
+	margin-bottom: 6px;
+}
+
+@media (max-width: 768px) {
+	.links-level-title, .links-title-text div {	
+		font-size: 18px;	
+	}
+	
+	.links-contacts-item-table div {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 480px) {
+	.links-level-title, .links-title-text div {	
+		font-size: 16px;	
+	}
+	
+	.links-contacts-item-table div {
+		font-size: 10px;
+	}
+}

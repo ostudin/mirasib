@@ -1,0 +1,180 @@
+.html-content {font-family: 'Merriweather', serif;}
+
+.html-content h3, .html-content h3 > span {
+	font-family: 'Merriweather', serif!important;
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: 30px;
+	margin-top: 0px;
+}
+
+.html-content p {
+	margin-bottom: 30px;
+	margin-top: 10px;
+}
+
+.html-content .info {
+	margin-bottom: 10px;
+}
+	
+.html-content .img {
+	width: 100%;
+	text-align: center;
+}
+
+/* .html-content ul {padding: 0; margin-left: 100px;} */
+
+.html-content li {
+	margin-bottom: 10px;
+	margin-left: 30px;
+	display: list-item;
+	list-style-type: disc;
+	list-style-position: inside;
+}
+
+.interview {
+	font-family: 'Merriweather', serif;
+	color: #222;	
+}
+
+.photo-description {
+	width: 100%;
+	text-align: right;
+	margin-top: -10px;
+	margin-bottom: 30px;
+}
+
+.photo-description-center, .html-content .caption {
+	width: 100%;
+	text-align: center;
+	margin-top: -10px!important;
+	margin-bottom: 30px!important;	
+	line-height: 1.4;
+}
+
+.interview-title {
+	font-weight: 500;
+	font-size: 40px;
+	line-height: 44px;	
+}
+
+.epigraph {
+	width: 70%;
+	margin-left: 30%;
+	font-style: italic;
+	font-size: 18px;
+	line-height: 22px;
+	padding: 10px;
+	font-weight: 500;
+	color: #000;
+}
+
+.intro {
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 23px;	
+	color: #555;
+}
+
+.intro .text {
+	font-size: 15px; 
+	background-color: #f5f5f5;
+	padding: 10px;
+	padding-bottom: 0;
+	margin-bottom: 10px;	
+}
+
+.interview-body {
+	font-size: 15px;
+	line-height: 20px;
+}
+
+.interview-body .question {font-weight: 600;}
+
+.interview-author {
+	float: right;
+	text-align: right;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	line-height: 18px;
+}
+
+.img {
+	margin-bottom: 20px;
+}
+
+/* Цитаты */
+
+.quote {
+	width: 100%;	
+	text-indent: 20px;
+	font-style: italic;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	font-size: 20px;
+	line-height: 26px;
+	padding: 10px;
+	font-weight: 600;
+	color: #2a7dac;
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.02));
+}
+
+.blockquote, .selected {
+	margin: 30px 0;
+	background: #fff4e0;
+	color: #474C4F;
+	padding: 30px;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	font-family: 'Lato', sans-serif;
+}
+
+.selected {background: #e0f4ff;}
+
+.blockquote:before {
+	content: "\f10d";
+	font-family: FontAwesome;
+	position: absolute;
+	z-index: 2;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 7px;
+	color: #474C4F;
+	font-size: 20px;
+	background: #FFF4E0;
+	padding: 0 15px;
+}
+
+.blockquote:after {
+	content: "";
+	position: absolute;
+	left: 15px;
+	top: 20px;
+	right: 15px;
+	height: 4px;
+	border-top: 1px dotted #474C4F;
+	border-bottom: 1px dotted #474C4F;
+}
+
+.blockquote p {
+	font-size: 14px;
+	letter-spacing: .05em;
+	line-height: 1.4;
+	margin-top: 20px;
+	margin-bottom: 0;
+}
+
+.blockquote cite {
+	font-style: normal;
+	font-weight: 300;
+}
+
+.author {
+	width: 100%;
+	padding-right: 10%;
+	text-align: right;
+}
+
+.nowrap {white-space: nowrap;}
+.alignright {text-align: right;}

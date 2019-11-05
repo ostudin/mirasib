@@ -26,9 +26,9 @@ class PublicAsset extends AssetBundle
 				
 		"assets/site/css/default.css",
 		"assets/site/css/admin.css",
-		"assets/site/css/site.css?v=1012",
-		"assets/site/css/htmlpages.css?v=1011",
-		"assets/site/css/linkspage.css?v=1012",		
+		"assets/site/css/site.css?v=2710",
+		"assets/site/css/htmlpages.css?v=2210",
+		"assets/site/css/linkspage.css?v=1210",		
     ];
 	
     public $js = [

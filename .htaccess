@@ -12,6 +12,8 @@ RewriteRule ^uploads/(.*)$ web/uploads/$1 [L]
 RewriteRule ^images/(.*)$ web/images/$1 [L]
 RewriteRule ^images-folders/(.*)$ web/images-folders/$1 [L]
 RewriteRule ^images-linkspage/(.*)$ web/images-linkspage/$1 [L]
+RewriteRule ^diplomas/(.*)$ web/diplomas/$1 [L]
+RewriteRule ^previews/(.*)$ web/previews/$1 [L]
 RewriteRule favicon.ico$ web/favicon.ico$1 [L]
 RewriteRule robots.txt$ web/robots.txt [L]
 RewriteRule (.*) /web/$1

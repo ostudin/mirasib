@@ -32,7 +32,7 @@
 	<div class="col-md-12 module-title">Новости</div>
 	<div class="col-md-12 module-content row-flex">
 		<?php foreach($articles as $article): ?>
-			<?php $thumbnails = $article->thumbnails;?>
+			<?php $thumbnails = $article->getPreview();?>
 			<div class="col-md-4 article">
 				<div class="article-img">
 					<?= Html::a(Html::img($thumbnails['file'], ['alt' => $article->title, 'class' => $thumbnails['topPosition'], ]), 
@@ -52,10 +52,10 @@
 </div>
 
 <div class="col-md-12 module">
-	<div class="col-md-12 module-title">Услуги, оказваемые НРОО "МиРа"</div>
+	<div class="col-md-12 module-title">Услуги, оказываемые НРОО "МиРа"</div>
 	<div class="col-md-12 module-content row-flex">
 		<?php foreach($services as $article): ?>
-			<?php $thumbnails = $article->getThumbnails('service');?>
+			<?php $thumbnails = $article->getPreview(['key' => 'service']);?>
 			<div class="col-md-4 article">
 				<div class="article-img-contain">
 					<?= Html::a(Html::img($thumbnails['file'], ['alt' => $article->title, 'class' => $thumbnails['topPosition'], ]), 
@@ -75,7 +75,7 @@
 	<div class="col-md-12 module-title">Наша команда</div>
 	<div class="col-md-12 module-content row-flex">
 		<?php foreach($interview as $article): ?>
-			<?php $thumbnails = $article->thumbnails;?>
+			<?php $thumbnails = $article->getPreview();?>
 			<div class="col-md-4 article">
 				<div class="article-img">
 					<?= Html::a(Html::img($thumbnails['file'], ['alt' => $article->title, 'class' => $thumbnails['topPosition'], ]), 
@@ -95,7 +95,7 @@
 	<div class="col-md-12 module-title">Стихи</div>
 	<div class="col-md-12 module-content row-flex">
 		<?php foreach($poems as $article): ?>
-			<?php $thumbnails = $article->thumbnails;?>
+			<?php $thumbnails = $article->getPreview();?>
 			<div class="col-md-4 article">
 				<div class="article-img">
 					<?= Html::a(Html::img($thumbnails['file'], ['alt' => $article->title, 'class' => $thumbnails['topPosition'], ]), 

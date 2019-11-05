@@ -51,7 +51,7 @@
 		<h3 class="widget-title text-uppercase text-center">Фотоальбом</h3>		
 		<div class="popular-post">
 			<div class="article-img popular-img">				
-				<?php $image = Article::getPhotoalbumImg(); ?>
+				<?php $image = Article::getPreview([], 'photoalbumimg'); ?>
 				<?= Html::a(Html::img($image['file'], ['alt' => 'Фотоальбом', 'class' => 'popular-img ' . $image['topPosition']]), ['/photo']); ?>
 			</div>				
 		</div>						
@@ -62,9 +62,10 @@
 		<aside class="widget pos-padding">
 			<h3 class="widget-title text-uppercase text-center">Популярные посты</h3>
 			<?php foreach($popular as $article): ?>
+				<?php $thumbnails = $article->getPreview();?>
 				<div class="popular-post">
 					<div class="article-img popular-img">
-					<?= Html::a(Html::img($article->thumbnails['file'], ['alt' => $article->title, 'class' => 'popular-img ' . $article->thumbnails['topPosition'], ]), [$article->pageURL, 'alias' => $article->alias]); ?>
+					<?= Html::a(Html::img($thumbnails['file'], ['alt' => $article->title, 'class' => 'popular-img ' . $thumbnails['topPosition'], ]), [$article->pageURL, 'alias' => $article->alias]); ?>
 					</div>
 					<div class="p-content">					
 						<?= Html::a($article->title, [$article->pageURL, 'alias' => $article->alias]); ?>
@@ -75,32 +76,6 @@
 		</aside>
 	<?php endif; ?>
 		
-	<!--aside class="widget pos-padding">
-		<h3 class="widget-title text-uppercase text-center">Recent Posts</h3>
-		<div class="thumb-latest-posts">
-			<div class="media">
-				<div class="media-left">
-					<a href="#" class="popular-img"><img src="/assets/site/public/images/r-p.jpg" alt="">
-						<div class="p-overlay"></div>
-					</a>
-				</div>
-				<div class="p-content">
-					<a href="#" class="text-uppercase">Home is peaceful Place</a>
-					<span class="p-date">February 15, 2016</span>
-				</div>
-			</div>
-		</div>		
-	</aside-->
-	
-	<!--aside class="widget border pos-padding">
-		<h3 class="widget-title text-uppercase text-center">Categories</h3>
-		<ul>
-			<li>
-				<a href="#">Food & Drinks</a>
-				<span class="post-count pull-right"> (2)</span>
-			</li>			
-		</ul>
-	</aside-->
 </div>
 
 <?= $this->render('/partials/visually-js'); ?>

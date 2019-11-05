@@ -4,6 +4,8 @@ namespace app\models;
 use Yii;
 use app\models\FileUpload;
 use yii\helpers\Html;
+use yii\helpers\FileHelper;
+use yii\imagine\Image;
 
 /**
  * This is the model class for table "article".
@@ -132,6 +134,41 @@ class Article extends \yii\db\ActiveRecord
 		$this->save();
 	}
 	
+	public function getPreview($opt = ['key' => false, 'width' => 900, 'height' => null], $for = false)
+	{
+		$image = [];
+		
+		switch ($for)
+		{
+			case false: $image = self::getThumbnails($opt['key']); break;
+			case 'photoalbumimg': $image = self::getPhotoalbumImg(); break;
+		}
+		
+		
+		if(isset($image['file']))
+		{
+			if(file_exists(Yii::getAlias('@app') . '/web/previews' . $image['file']))
+			{
+				$image['file'] = '/previews' . $image['file'];
+			}
+			
+			else
+			{			
+				$img = Yii::$app->request->hostInfo . $image['file']; 
+				
+				$width = isset($opt['width']) ? $opt['width'] : 900;
+				$height = isset($opt['height']) ? $opt['height'] : null;
+				
+				FileHelper::createDirectory(Yii::getAlias('@app') . '/web/previews/' . $image['folder']);
+					
+				Image::thumbnail($img, $width, $height)->save(Yii::getAlias('@app') . '/web/previews' . $image['file'], ['quality' => 80]);
+				$image['file'] = '/previews' . $image['file'];
+			}	
+		}
+		
+		return $image;
+	}
+	
 	public function getThumbnails($key = false)
 	{
 		if($this->image)
@@ -141,6 +178,7 @@ class Article extends \yii\db\ActiveRecord
 			return 	[
 				'file' => '/' . FileUpload::getFolder('images') . $this->image,
 				'topPosition' => self::getObjectPosition($this->image),
+				'folder' => 'images',
 			];
 		}
 		
@@ -159,6 +197,7 @@ class Article extends \yii\db\ActiveRecord
 							return [
 								'file' => '/images-folders/' . $this->imageFolder . '/' . $file,
 								'topPosition' => self::getObjectPosition($file),
+								'folder' => 'images-folders/' . $this->imageFolder,
 							];
 						}
 					}
@@ -171,6 +210,7 @@ class Article extends \yii\db\ActiveRecord
 						return [
 							'file' => '/images-folders/' . $this->imageFolder . '/' . $file,
 							'topPosition' => self::getObjectPosition($file),
+							'folder' => 'images-folders/' . $this->imageFolder,
 						];
 					}
 				}
@@ -180,6 +220,7 @@ class Article extends \yii\db\ActiveRecord
 		return [
 				'file' => '/images/no-image.png',
 				'topPosition' => 'topcenter',
+				'folder' => 'images',
 			];;
 	}
 	
@@ -342,6 +383,7 @@ class Article extends \yii\db\ActiveRecord
 						return [
 							'file' => '/images-folders/' . $folder . '/' . $file,
 							'topPosition' => self::getObjectPosition($file),
+							'folder' => 'images-folders/' . $folder,
 						];
 					}
 				}
@@ -402,5 +444,53 @@ class Article extends \yii\db\ActiveRecord
 		if($t && !$item['html_content']) $item['html_content'] = $t;
 		
 		return $item;
+	}
+	
+	public function getDiplomas()
+	{
+		$files = scandir(Yii::getAlias('@web') . 'diplomas', 1);
+		$images = [];
+		
+		if(count($files))
+		{
+			foreach($files as $file)
+			{
+				if(strlen($file) > 3) 
+				{
+					$images[] = [
+						'file' => '/diplomas/' . $file,
+						'topPosition' => Article::getObjectPosition($file),
+					];
+				}
+			}
+		}
+		
+		return $images;
+	}
+	
+	public function getDiplomasImg()
+	{
+		$files = scandir(Yii::getAlias('@web') . 'diplomas');
+		$images = [];
+		
+		if(count($files))
+		{
+			foreach($files as $file)
+			{
+				if(strlen($file) > 3) 
+				{
+					$images[] = $file;
+				}
+			}
+		}
+		
+		$num = rand(0, count($images) - 1);
+		
+		if(!isset($images[$num]) || !file_exists(Yii::getAlias('@web') . 'diplomas/' . $images[$num])) $num = 0;
+		
+		return [
+			'file' => '/diplomas/' . $images[$num],
+			'topPosition' => Article::getObjectPosition($images[$num]),
+		];				
 	}
 }

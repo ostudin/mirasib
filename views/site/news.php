@@ -17,7 +17,7 @@
 	<div class="col-md-12 module-content row-flex">
 		<?php foreach($articles as $article): ?>
 			<?php 
-				$thumbnails = $article->thumbnails;
+				$thumbnails = $article->getPreview();
 				$link = ($title !== 'Фотоальбом') ? $article->pageURL : $article->getPageURL(1);
 			?>
 			<div class="col-md-4 article">

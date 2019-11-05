@@ -64,6 +64,7 @@ $config = [
 				'contacts/'  => 'site/contacts',
 				'photo/<alias>'     => 'site/photo',
 				'photo/'     => 'site/photo',
+				'diplomas/'  => 'site/diplomas',
 								
 				'entry/'       => 'auth/entry',
 				'signup/'      => 'auth/signup',

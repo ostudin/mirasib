@@ -1,0 +1,177 @@
+/* Кнопка */
+.visually-impaired {
+	display: block;
+	padding: 10px;
+}
+.visually-normal {
+	display: none;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: Arial;
+	margin-right: 10px;
+	margin-top: 10px;
+	color: #333;
+}
+
+.visually .visually-impaired {display: none;}
+.visually .visually-normal {display: block;}
+
+/* Панель */
+
+.visually-panel-nav {
+	display: none;
+	min-height: 39px;	
+	margin-bottom: 0;
+	border-bottom: 1px solid #c0c0ae;
+	border-radius: 0;
+	background: linear-gradient(0deg, #f5f5e4, #fffff4);
+	padding: 10px;
+}
+
+.panel-nav-visually-mode {display: block;}
+
+.visually-panel-block {margin: 5px 0;}
+
+.visually-panel-block .title {
+	float: left;
+	font-size: 16px;
+	font-weight: 700;
+	font-family: Arial;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+
+.visually-ul {float: left;}
+
+.visually-ul li {
+	float: left;
+	cursor: pointer;
+	list-style: none;
+	margin-right: 10px;
+}
+
+.visually-normal-button {cursor: pointer;}
+
+
+/* black scheme */
+.scheme-black, .scheme-black div, .scheme-black a, .scheme-black p, .scheme-black span, .scheme-black aside, .scheme-black footer, .scheme-black h1,
+.scheme-black h2, .scheme-black h3, .scheme-black h4, .scheme-black h5, .scheme-black h6, .scheme-black button, .scheme-black nav {
+	background-color: black!important;
+	color: white!important;
+	border: 0!important;
+}
+
+.scheme-black .button, .scheme-black button {border: 1px solid white!important;}
+
+.scheme-black .button-collapse {background-color: #eee!important;}
+.scheme-black .button-collapse:active, .scheme-black .button-collapse:focus {background-color: #bbb!important;}
+
+/* white scheme */
+.scheme-white, .scheme-white div, .scheme-white a, .scheme-white p, .scheme-white span, .scheme-white aside, .scheme-white footer, .scheme-white h1,
+.scheme-white h2, .scheme-white h3, .scheme-white h4, .scheme-white h5, .scheme-white h6, .scheme-white button, .scheme-white nav {
+	background-color: white!important;
+	color: black!important;
+	border: 0!important;
+}
+
+.scheme-white .button-collapse {background-color: #444!important;}
+.scheme-white .button-collapse:active, .scheme-white .button-collapse:focus {background-color: #777!important;}
+
+.scheme-white .button, .scheme-white button {border: 1px solid black!important;}
+
+/* blue scheme */
+.scheme-blue, .scheme-blue div, .scheme-blue a, .scheme-blue p, .scheme-blue span, .scheme-blue aside, .scheme-blue footer, .scheme-blue h1,
+.scheme-blue h2, .scheme-blue h3, .scheme-blue h4, .scheme-blue h5, .scheme-blue h6, .scheme-blue button, .scheme-blue nav {
+	background-color: rgb(157, 209, 255)!important;
+	color: black!important;
+	border: 0!important;
+}
+
+.scheme-blue .button, .scheme-blue button {
+	border: 1px solid black!important;
+}
+
+.scheme-blue .button-collapse {background-color: rgb(25, 139, 239)!important;}
+.scheme-blue .button-collapse:active, .scheme-blue .button-collapse:focus {background-color: rgb(0, 89, 189)!important;}
+
+/* fontsize-large */
+.fontsize-large, .fontsize-large div, .fontsize-large a, .fontsize-large p, .fontsize-large span, .fontsize-large aside, .fontsize-large footer, .fontsize-large h1,
+.fontsize-large h2, .fontsize-large h3, .fontsize-large h4, .fontsize-large h5, .fontsize-large h6, .fontsize-large button, .fontsize-large nav {
+	font-size: 18px!important;
+	line-height: 22px!important;
+}
+
+.fontsize-large .module-title {
+	font-size: 30px!important;
+	line-height: 34px!important;
+}
+
+.fontsize-large .widget ul li a {
+	font-size: 14px!important;
+	line-height: 18px!important;
+}
+
+/* fontsize-largest */
+.fontsize-largest, .fontsize-largest div, .fontsize-largest a, .fontsize-largest p, .fontsize-largest span, .fontsize-largest aside, .fontsize-largest footer, .fontsize-largest h1,
+.fontsize-largest h2, .fontsize-largest h3, .fontsize-largest h4, .fontsize-largest h5, .fontsize-largest h6, .fontsize-largest button, .fontsize-largest nav {
+	font-size: 22px!important;
+	line-height: 26px!important;
+}
+
+.fontsize-largest .module-title {
+	font-size: 34px!important;
+	line-height: 38px!important;
+}
+
+.fontsize-largest .widget ul li a {
+	font-size: 16px!important;
+	line-height: 20px!important;
+}
+
+/* images-black-white */
+.images-black-white img {
+	-webkit-filter: grayscale(100%);
+	-moz-filter: grayscale(100%);
+	-ms-filter: grayscale(100%);
+	-o-filter: grayscale(100%);
+	filter: grayscale(100%);
+	filter: gray; /* IE 6-9 */
+}
+
+/* images-none */
+.images-none img {
+	display: none;
+}
+
+@media (max-width: 1279px) and (min-width: 992px) {
+	
+		/* fontsize-large */
+	.fontsize-large, .fontsize-large div, .fontsize-large a, .fontsize-large p, .fontsize-large span, .fontsize-large aside, .fontsize-large footer, .fontsize-large h1,
+	.fontsize-large h2, .fontsize-large h3, .fontsize-large h4, .fontsize-large h5, .fontsize-large h6, .fontsize-large button, .fontsize-large nav {
+		font-size: 15px!important;
+		line-height: 19px!important;
+	}
+
+	.fontsize-large .widget ul li a {
+		font-size: 13px!important;
+		line-height: 17px!important;
+	}
+
+	/* fontsize-largest */
+	.fontsize-largest, .fontsize-largest div, .fontsize-largest a, .fontsize-largest p, .fontsize-largest span, .fontsize-largest aside, .fontsize-largest footer, .fontsize-largest h1,
+	.fontsize-largest h2, .fontsize-largest h3, .fontsize-largest h4, .fontsize-largest h5, .fontsize-largest h6, .fontsize-largest button, .fontsize-largest nav {
+		font-size: 16px!important;
+		line-height: 20px!important;
+	}
+	
+	.fontsize-largest .widget ul li a {
+		font-size: 14px!important;
+		line-height: 18px!important;
+	}
+}
+
+@media (max-width: 479px) {
+	.fontsize-large .nivo-caption, .fontsize-largest .nivo-caption {
+		display: none!important;
+	}
+}

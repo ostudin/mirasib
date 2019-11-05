@@ -47,7 +47,7 @@
 	</div>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 div-vk-auth">
 	
 		<script type="text/javascript" src="https://vk.com/js/api/openapi.js?162"></script>
 		<script type="text/javascript">

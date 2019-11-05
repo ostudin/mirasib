@@ -220,4 +220,11 @@ class SiteController extends Controller
 			return $this->render('photo', compact('article'));
 		}
     }
+	
+	public function actionDiplomas()
+	{
+		$diplomas = Article::getDiplomas();
+		
+		return $this->render('diplomas', compact('diplomas'));
+	}
 }

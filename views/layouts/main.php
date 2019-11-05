@@ -81,7 +81,7 @@ PublicAsset::register($this);
 						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							<ul class="nav navbar-nav text-uppercase menu-on-img col-md-12">                    
 								<li><a href="/">Главная</a></li>
-								<li><a href="/about">Об огранизации</a></li>
+								<li><a href="/about">Об организации</a></li>
 								<li><a href="/projects">Проекты</a></li>
 								<li><a href="/feedback">Написать нам</a></li>
 								<li><a href="/contacts">Контакты</a></li>
@@ -104,11 +104,11 @@ PublicAsset::register($this);
 				</div>
 			</nav>		
 			<a href="/">
-				<div id="organization-name">
+				<div id="organization-name" class="organization-name">
 					<div class="organization-logo"><img src="/web/images/logo-hand.png" class="logo"></div>
 					<div class="organization-text"><p>Новосибирская региональная общественная организация <span class="nowrap">по защите</span> прав и законных интересов инвалидов "МиРа"</p></div>
 				</div>
-				<div id="header-bottom-bar"></div>
+				<div id="header-bottom-bar" class="header-bottom-bar"></div>
 			</a>
 		</div>
 				
