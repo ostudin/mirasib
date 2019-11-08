@@ -28,7 +28,7 @@
 						<h2><?= $item['title'] ?></h2>
 						<?php if(count($item['data'])): ?>
 							<?php foreach($item['data'] as $data): ?>
-								<details><summary class='p-10'><?= $data['question'] ?></summary><p class='padding-10'><?= $data['answer'] ?></p></details>
+								<details class="details"><summary class='summary'><span class='span-summary'><?= $data['question'] ?></span></summary><p class='p-details'><?= $data['answer'] ?></p></details>
 							<?php endforeach; ?>
 						<?php endif; ?>
 					</div>
