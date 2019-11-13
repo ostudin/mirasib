@@ -19,9 +19,9 @@
 	
 	<div class="post-content">							
 			<?php if(count($diplomas) > 1): ?>
-				<div class="post-images gallery row-flex">
+				<div class="gallery row-flex">
 					<?php foreach($diplomas as $image): ?>
-						<div class="post-image">
+						<div class="diplom col-md-4">
 							<a href="<?= $image['file'] ?>" title=''>
 								<img src="<?= $image['file'] ?>" class="<?= $image['topPosition'] ?>" />
 							</a>

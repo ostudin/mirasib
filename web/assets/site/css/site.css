@@ -224,8 +224,20 @@ aside {overflow-x:hidden;}
 .p-content:hover {color: #00bff3;}
 .widget {padding: 20px;}
 .widget ul li a {line-height: 16px;}
+
+.widget td {
+	text-align: left;
+	padding: 5px;
+	font-family: 'Merriweather', serif;
+	text-transform: uppercase;
+}
+
+.widget-title {line-height: 1.3}
+
 .popular-img {height: 150px!important;}
-/* .diplomas-img {height: auto!important;} */
+.diplomas-img {
+	height: auto!important;
+}
 .user-photo {margin-bottom: 10px;}
 
 /* Footer */
@@ -343,6 +355,11 @@ aside {overflow-x:hidden;}
 	object-position: center top;
 	width: 100%;
 	height: 100%;
+}
+
+.post-content .video {
+	width: 853px;
+	height: 480px;
 }
 
 .comment {
@@ -474,6 +491,9 @@ p.go-back-home a {color: #0080b0;}
 
 .projects p {line-height: 22px;}
 
+/* Дипломы */
+.diplom {margin-bottom: 40px;}
+
 
 @media (max-width: 1279px) and (min-width: 992px) {
 	.btn {
@@ -489,6 +509,11 @@ p.go-back-home a {color: #0080b0;}
 	.post-thumb img {max-height: 500px;}
 	
 	.organization-text p {padding-top: 20px;}
+	
+	.post-content .video {
+		width: 640px;
+		height: 360px;
+	}
 }
 
 @media (min-width: 992px) {
@@ -590,9 +615,20 @@ p.go-back-home a {color: #0080b0;}
 	
 	.diplomas-img {max-height: 500px;}
 		
+	.diplomas-img img {		
+		width: 100%;
+		max-height: 500px;
+		object-fit: contain;
+	}
+	
 	.div-vk-auth {
 		margin-left: calc(50% - 100px);
 		margin-bottom: 30px;
+	}
+	
+	.post-content .video {
+		width: 691px;
+		height: 389px;
 	}
 }
 
@@ -620,6 +656,11 @@ p.go-back-home a {color: #0080b0;}
 	#header-bottom-bar {height: 10px;}
 	
 	.diplomas-img {max-height: 350px;}
+	
+	.post-content .video {
+		width: 432px;
+		height: 243px;
+	}
 }
 
 @media (max-width: 479px) {
@@ -654,6 +695,11 @@ p.go-back-home a {color: #0080b0;}
 		padding-left: 5px;
 	}
 	
+	.post-content .video {
+		width: 288px;
+		height: 162px;
+	}
+	
 	.article-title h2 {
 		font-size: 22px;
 		line-height: 26px;		
@@ -674,6 +720,11 @@ p.go-back-home a {color: #0080b0;}
 	.header {		
 	  	background-position: bottom right;
 		min-height: 150px;
+	}
+	
+	.post-content .video {
+		width: 216px;
+		height: 122px;
 	}
 }
 

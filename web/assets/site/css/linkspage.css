@@ -113,6 +113,81 @@ table.doc img, table.doc span {float: left;}
 	margin-bottom: 6px;
 }
 
+
+/*======
+faq
+========*/
+    
+.summary {
+    padding: 10px;
+    padding-bottom: 14px;
+    color: #856404;
+    background: #fff3cd;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.details[open] summary {
+    border-radius: 25px 25px 0 0;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.summary::-webkit-details-marker {
+    display: none
+}
+
+.summary::before {
+    background-color: #99CCFF;
+    border-radius: 30px;
+    border: 3px solid #31749B;
+    content: "+";
+    float: right;
+    font-size: 31px!important;
+    color: #31749B;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 22px;
+}
+.details[open] summary::before {
+    content: "-";
+}
+
+.details[open] {
+    border-radius: 25px;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    margin-bottom: 25px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.details[open] summary:focus {
+    box-shadow: 0 0 0 0;
+    border: 2px solid #428bcad1;
+    outline: none;
+}
+
+.summary:focus {
+    box-shadow: 0 0 0 2px #ffffff,
+                0 0 0 4px #60c7eb85;
+    outline: none;
+}
+
+.p-details{padding: 0 15px 30px 15px;}
+
+.span-summary{
+   margin-left: 10px;
+   margin-right: 15px;
+}
+
+
 @media (max-width: 768px) {
 	.links-level-title, .links-title-text div {	
 		font-size: 18px;	

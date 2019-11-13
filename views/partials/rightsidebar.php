@@ -4,6 +4,7 @@
 	use app\models\Search;
 	use app\models\Article;
 	use app\models\User;
+	use app\models\Page;
 ?>
 
 <div class="primary-sidebar">
@@ -75,6 +76,53 @@
 			<?php endforeach; ?>					
 		</aside>
 	<?php endif; ?>
+	
+	
+	<aside class="widget pos-padding text-center">
+		<h3 class="widget-title text-uppercase text-center">Посещаемость сайта</h3>
+		<?php $visitors = Page::getVisitors(); ?>
+		<?php if(count($visitors)): ?>		
+			<table>
+				<?php if(isset($visitors['yesterday'])): ?>
+					<tr><td>Вчера</td><td><?= $visitors['yesterday'] ?></td></tr>
+				<?php endif; ?>
+				
+				<?php if(isset($visitors['week'])): ?>
+					<tr><td>За неделю</td><td><?= $visitors['week'] ?></td></tr>
+				<?php endif; ?>
+				
+				<?php if(isset($visitors['month'])): ?>
+					<tr><td>За месяц</td><td><?= $visitors['month'] ?></td></tr>
+				<?php endif; ?>
+			</table>
+		<?php endif; ?>
+		
+		<?php if (strpos($_SERVER["HTTP_HOST"],"mira-sib.ru") !== false): ?>
+			<div class="yandex-informer mt-20">
+				<!-- Yandex.Metrika informer -->
+					<a href="https://metrika.yandex.ru/stat/?id=55533865&amp;from=informer"
+					target="_blank" rel="nofollow"><img src="https://informer.yandex.ru/informer/55533865/3_1_FFFFFFFF_EFEFEFFF_0_uniques"
+					style="width:88px; height:31px; border:0;" alt="Яндекс.Метрика" title="Яндекс.Метрика: данные за сегодня (просмотры, визиты и уникальные посетители)" class="ym-advanced-informer" data-cid="55533865" data-lang="ru" /></a>
+					<!-- /Yandex.Metrika informer -->
+
+					<!-- Yandex.Metrika counter -->
+					<script type="text/javascript" >
+					   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+					   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+					   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+					   ym(55533865, "init", {
+							clickmap:true,
+							trackLinks:true,
+							accurateTrackBounce:true
+					   });
+					</script>
+					<noscript><div><img src="https://mc.yandex.ru/watch/55533865" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+				<!-- /Yandex.Metrika counter -->
+			</div>
+		<?php endif; ?>
+	</aside>
+	
 		
 </div>
 

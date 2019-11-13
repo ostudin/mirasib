@@ -208,4 +208,73 @@ class Page extends Model
 			]);
 		}		
 	}
+	
+	public function getVisitors()
+	{				
+		$date = date('Y-m-d', time() - 60*60*24);
+		
+		$visitors = Yii::$app->db->createCommand("SELECT yesterday, week, month FROM visitors WHERE date = '$date'")->queryOne();
+		
+		if(count($visitors) <= 1)
+		{
+			$visitors = self::getYandexMetrika();
+			
+			$yesterday = isset($visitors['yesterday']) ? $visitors['yesterday'] : 0;
+			$month     = isset($visitors['month'])     ? $visitors['month']     : 0;
+			$week      = isset($visitors['week'])      ? $visitors['week']      : 0;
+						
+			$params = ['yesterday' => $yesterday, 'week' => $week, 'month' => $month, 'date' => $date];			
+			Yii::$app->db->createCommand('INSERT INTO visitors (yesterday, week, month, date) VALUES(:yesterday, :week, :month, :date)', $params)->execute();
+		}
+		
+		return $visitors;
+	}
+	
+	private function getYandexMetrika()
+	{
+		$array = [];
+		
+		$yandexID    = '55533865';
+		$yandexToken = 'AgAEA7qiFI7AAAX4vfaW9kK4cUjUnOfmRBsF2wE';
+		$url         = 'https://api-metrika.yandex.ru/stat/v1/data.json';
+				
+		$params = [
+			'ids'         => $yandexID,
+			'oauth_token' => $yandexToken,			
+			'metrics'     => 'ym:s:visits',
+			'dimensions'  => 'ym:s:date',
+			'date1'       => '30daysAgo',
+			'date2'       => 'yesterday',
+			'sort'        => 'ym:s:date',
+		];
+
+		$metrics = file_get_contents($url . '?' . http_build_query($params));
+		
+		if($metrics)
+		{
+			$metrics = json_decode($metrics, JSON_OBJECT_AS_ARRAY);
+			
+			if(count($metrics['data']))
+			{
+				if(isset($metrics['data'][29]['metrics'][0]))
+				{
+					$array['yesterday'] = $metrics['data'][29]['metrics'][0];
+				}
+				
+				$array['week'] = 0;
+				
+				for($i=29; $i>=23; $i--)
+				{
+					if(isset($metrics['data'][$i]['metrics'][0]))
+					{
+						$array['week'] += $metrics['data'][$i]['metrics'][0];
+					}
+				}				
+			}
+			
+			if(isset($metrics['totals'][0])) $array['month'] = $metrics['totals'][0];
+		}
+		
+		return $array;		
+	}
 }

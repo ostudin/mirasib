@@ -55,11 +55,29 @@
 
 /* black scheme */
 .scheme-black, .scheme-black div, .scheme-black a, .scheme-black p, .scheme-black span, .scheme-black aside, .scheme-black footer, .scheme-black h1,
-.scheme-black h2, .scheme-black h3, .scheme-black h4, .scheme-black h5, .scheme-black h6, .scheme-black button, .scheme-black nav {
+.scheme-black h2, .scheme-black h3, .scheme-black h4, .scheme-black h5, .scheme-black h6, .scheme-black button, .scheme-black nav, .scheme-black details, .scheme-black summary{
 	background-color: black!important;
 	color: white!important;
 	border: 0!important;
 }
+
+.scheme-black .summary::before{
+	color: white;
+	background-color: black;
+	border: 3px solid white;
+	
+}
+
+.scheme-black .summary:focus {
+    box-shadow: 0 0 0 2px #ffffff;
+    outline: none;
+}
+
+.scheme-black .details[open] summary:focus {
+    box-shadow: 0 0 0 2px #ffffff;
+    outline: none;
+}
+
 
 .scheme-black .button, .scheme-black button {border: 1px solid white!important;}
 
@@ -68,10 +86,26 @@
 
 /* white scheme */
 .scheme-white, .scheme-white div, .scheme-white a, .scheme-white p, .scheme-white span, .scheme-white aside, .scheme-white footer, .scheme-white h1,
-.scheme-white h2, .scheme-white h3, .scheme-white h4, .scheme-white h5, .scheme-white h6, .scheme-white button, .scheme-white nav {
+.scheme-white h2, .scheme-white h3, .scheme-white h4, .scheme-white h5, .scheme-white h6, .scheme-white button, .scheme-white nav, .scheme-white details, .scheme-white summary {
 	background-color: white!important;
 	color: black!important;
 	border: 0!important;
+}
+
+.scheme-white .summary::before{
+	color: black;
+	background-color: white;
+	border: 3px solid black;
+}
+
+.scheme-white .summary:focus {
+    box-shadow: 0 0 0 2px black;
+    outline: none;
+}
+
+.scheme-white .details[open] summary:focus {
+    box-shadow: 0 0 0 2px black;
+    outline: none;
 }
 
 .scheme-white .button-collapse {background-color: #444!important;}
@@ -81,10 +115,26 @@
 
 /* blue scheme */
 .scheme-blue, .scheme-blue div, .scheme-blue a, .scheme-blue p, .scheme-blue span, .scheme-blue aside, .scheme-blue footer, .scheme-blue h1,
-.scheme-blue h2, .scheme-blue h3, .scheme-blue h4, .scheme-blue h5, .scheme-blue h6, .scheme-blue button, .scheme-blue nav {
+.scheme-blue h2, .scheme-blue h3, .scheme-blue h4, .scheme-blue h5, .scheme-blue h6, .scheme-blue button, .scheme-blue nav, .scheme-blue details, .scheme-blue summary {
 	background-color: rgb(157, 209, 255)!important;
 	color: black!important;
 	border: 0!important;
+}
+
+.scheme-blue .summary::before{
+	background-color: rgb(157, 209, 255);
+	color: black;
+	border: 3px solid black;
+}
+
+.scheme-blue .summary:focus {
+    box-shadow: 0 0 0 2px black;
+    outline: none;
+}
+
+.scheme-blue .details[open] summary:focus {
+    border: 2px solid black!important;
+    outline: none;
 }
 
 .scheme-blue .button, .scheme-blue button {
@@ -117,7 +167,6 @@
 	font-size: 22px!important;
 	line-height: 26px!important;
 }
-
 .fontsize-largest .module-title {
 	font-size: 34px!important;
 	line-height: 38px!important;

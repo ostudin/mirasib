@@ -44,7 +44,7 @@
 	<aside class="widget pos-padding">
 		<h3 class="widget-title text-uppercase text-center">Наши достижения</h3>		
 		<div class="popular-post">
-			<div class="article-img popular-img diplomas-img">				
+			<div class="diplomas-img">				
 				<?php $image = Article::getDiplomasImg(); ?>
 				<?= Html::a(Html::img($image['file'], ['alt' => 'Наши достижения', 'class' => $image['topPosition']]), ['/diplomas']); ?>
 			</div>				

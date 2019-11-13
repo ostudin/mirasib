@@ -17,7 +17,7 @@ class PublicAsset extends AssetBundle
 		"assets/site/public/css/style.css",
 		"assets/site/public/css/responsive.css",
 		
-		"assets/site/module/visually-impaired/style.css",
+		"assets/site/module/visually-impaired/style.css?v=911",
 		
 		"assets/site/plugins/magnific/magnific-popup.css",
 		
@@ -26,9 +26,9 @@ class PublicAsset extends AssetBundle
 				
 		"assets/site/css/default.css",
 		"assets/site/css/admin.css",
-		"assets/site/css/site.css?v=2710",
+		"assets/site/css/site.css?v=1013-2",
 		"assets/site/css/htmlpages.css?v=2210",
-		"assets/site/css/linkspage.css?v=1210",		
+		"assets/site/css/linkspage.css?v=911",		
     ];
 	
     public $js = [
