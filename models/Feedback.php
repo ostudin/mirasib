@@ -8,7 +8,7 @@ class Feedback extends Model
 	public $name;
 	//public $phone;
 	public $email;
-	//public $verifyCode;	
+	public $verifyCode;	
 	public $message;
 	private $ip, $httpReferer;
 	
@@ -19,7 +19,7 @@ class Feedback extends Model
 			['email', 'required', 'message'=>'Необходимо заполнить поле'],
 			['message', 'required', 'message'=>'Необходимо заполнить поле'],
 			['email', 'email'],
-			//['verifyCode', 'captcha', 'captchaAction'=>'/site/captcha']
+			['verifyCode', 'captcha', 'captchaAction'=>'/site/captcha']
 		];
     }	
 		

@@ -31,7 +31,13 @@
 				
 				echo $form->field($model, 'message')->textarea(['maxlength'=>'1500', 'placeholder'=>'Введите текст сообщения', 
 						'cols' => '30', 'rows' => '4'])->label(false);
-									
+
+				echo '<div id="captcha">';
+				echo 	'<div id="captcha-label">Введите число с картинки: </div>';			
+				//echo 	'<img src="'.Yii::getAlias('@web').'/images/refresh.png" title="Обновить число" id="captcha-refresh" />';
+				echo 	$form->field($model, 'verifyCode')->widget(Captcha::className(), ['imageOptions' => ['id' => 'captcha-image']])->label("");			
+				echo '</div>';
+				
 				echo Html::submitButton('Отправить', ['class' => 'btn btn-success mb-20 mt-20 col-sm-8 col-sm-offset-2', 'id' => 'feedback-button']); 
 			
 				ActiveForm::end();
@@ -40,3 +46,17 @@
 		<div class="col-sm-8 col-sm-offset-2 text-center mb-20">Нажимая на кнопку, вы даете согласие на обработку персональных данных и соглашаетесь c <?= Html::a('политикой конфиденциальности', ['site/privacy'], ['target' => '_blank']) ?></div>
 	</div>
 </div>
+
+<?php
+	$this->registerJs("
+		$(document).on('click', '.form-control', function(event){
+			$('#captcha').css('display', 'block');				
+		});
+		
+		$(document).on('click', '#captcha-refresh', function(event){
+			$('#captcha-image').yiiCaptcha('refresh');
+		});
+		
+		$('.field-feedback-verifycode').prepend('<img src=\"".Yii::getAlias('@web')."/images/refresh.png\" title=\"Обновить число\" id=\"captcha-refresh\" />');
+	");
+?>

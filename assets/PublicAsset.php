@@ -26,7 +26,7 @@ class PublicAsset extends AssetBundle
 				
 		"assets/site/css/default.css",
 		"assets/site/css/admin.css",
-		"assets/site/css/site.css?v=1013-2",
+		"assets/site/css/site.css?v=1811",
 		"assets/site/css/htmlpages.css?v=2210",
 		"assets/site/css/linkspage.css?v=911",		
     ];

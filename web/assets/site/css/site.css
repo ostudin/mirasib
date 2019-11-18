@@ -494,6 +494,14 @@ p.go-back-home a {color: #0080b0;}
 /* Дипломы */
 .diplom {margin-bottom: 40px;}
 
+/*Captcha*/
+#captcha-refresh {
+	width: 32px;
+	margin-top: 10px;
+	float: left;
+	cursor: pointer;
+}
+
 
 @media (max-width: 1279px) and (min-width: 992px) {
 	.btn {
